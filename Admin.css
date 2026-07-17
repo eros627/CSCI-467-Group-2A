@@ -1,0 +1,122 @@
+.adminHeader {
+    align-items: center;
+    background-color: #5787f7;
+    display: flex;
+    gap: 25px;
+    justify-content: left;
+    padding: 5px 20px;
+    padding-left: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.orderFilterBar {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    padding: 20px 24px;
+    text-align: left;
+}
+
+.priceInput {
+    font-size: 1rem;
+    padding: 8px 10px;
+    width: 90px;
+}
+
+.orderResultList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 24px 24px;
+}
+
+.shippingSection {
+    padding: 24px;
+    text-align: left;
+}
+
+.bracketTable {
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    width: 60%;
+}
+
+.bracketTable th,
+.bracketTable td {
+    border-bottom: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.removeButton {
+    background-color: #f28c80;
+}
+
+.bracketForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 300px;
+}
+
+.bracketFormRow {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.bracketLabel {
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.checkoutButton {
+    background-color: #6ee68e;
+}
+
+.orderOverlay {
+    background: gray;
+    box-shadow: -10px -10px 9px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 850px;
+    left: 50%;
+    overflow-y: auto;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    z-index: 100;
+}
+
+.orderToView {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderOverlayTitle {
+    color: #ccc;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.overlaySection {
+    color: black;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.overlayBody {
+    color: black;
+    text-align: left;
+}
+
+button {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
