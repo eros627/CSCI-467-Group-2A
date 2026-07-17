@@ -1,0 +1,61 @@
+.receivingHeader {
+    align-items: center;
+    background-color: #5787f7;
+    display: flex;
+    gap: 25px;
+    justify-content: left;
+    padding: 5px 20px;
+    padding-left: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.searchInput {
+    font-size: 1rem;
+    padding: 10px 12px;
+    width: 250px;
+}
+
+.confirmationBanner {
+    background-color: #d9f2e3;
+    color: #1e7b34;
+    margin: 12px 24px;
+    padding: 10px 16px;
+    text-align: left;
+}
+
+.partResultList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+.receiveForm {
+    border-top: 1px solid #ccc;
+    padding: 24px;
+    text-align: left;
+}
+
+.quantityRow {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.quantityLabel {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.qtyInput {
+    font-size: 1rem;
+    padding: 10px 12px;
+    width: 80px;
+}
+
+button {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
