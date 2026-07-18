@@ -1,3 +1,4 @@
+//the whole receiving desk screen. Search a part,select it,log how many came in.
 import './Receiving.css';
 import PartResultCard from '../../components/PartResultCard';
 import mockParts from '../../data/mockParts';
