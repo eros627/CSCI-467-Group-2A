@@ -1,0 +1,36 @@
+.orderResultCard {
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    padding: 10px;
+    width: 70%;
+}
+
+.orderResultInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.orderResultStatus {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.statusAuthorized {
+    color: #a15c00;
+}
+
+.statusShipped {
+    color: #1e7b34;
+}
+
+.viewOrder {
+    display: flex;
+}
