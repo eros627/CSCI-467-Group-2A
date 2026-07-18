@@ -1,0 +1,33 @@
+.partResultCard {
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    gap: 24px;
+    padding: 10px;
+    width: 80%;
+}
+
+.partResultCard img {
+    border-radius: 4px;
+    height: 80px;
+    object-fit: cover;
+    width: 80px;
+}
+
+.partResultCardSelected {
+    border: 2px solid #5787f7;
+}
+
+.partResultInfo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.selectPart {
+    align-items: center;
+    display: flex;
+}
