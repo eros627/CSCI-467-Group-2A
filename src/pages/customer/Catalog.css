@@ -1,0 +1,180 @@
+/**
+ * Tom Bernstein
+ * CSCI 467 - 1
+ * Group 2A Product System
+ *
+ * Description: 
+ *****************************************************************************/
+
+
+/* div boundary visualization */
+/*
+div {
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+*/
+
+.catalogHeader {
+  align-items: center;
+  background-color: #5787f7;
+  display: flex;
+  gap: 25px;
+  justify-content: left;
+  padding: 5px 20px;
+  padding-left: 25px;
+  position: sticky;
+  top: 0;
+}
+
+
+.searchInput {
+    font-size: 1rem;
+    padding: 10px 12px;
+    width: 250px;
+}
+
+.cartOverlay {
+    background: gray;
+    box-shadow: -10px 0 8px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 850px;
+    z-index: 100;
+}
+
+.cartOverlay .productInfo p {
+    color: black;
+}
+
+.cartOverlay .quantityLabel {
+    color: black;
+}
+
+
+.cartHeader {
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-shrink: 0;
+    gap: 25px;
+    justify-content: left;
+    padding-bottom: 1px;
+}
+
+.cartItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 510px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.cartRow {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.removeButton {
+    background-color: #f28c80;
+}
+
+.orderSummary {
+   align-items: flex-start;
+   color: black;
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+}
+
+.billingInfo {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.billFormRow {
+    align-items: center;
+    display: flex;
+    font-size: .65rem;
+    gap: 5px;
+}
+
+.billInput {
+    width: 140px;
+}
+
+.billLabel {
+    flex-shrink: 0;
+    width: 80px;
+}
+
+
+.checkoutButton {
+    background-color: #6ee68e;
+}
+
+.checkoutButton:disabled {
+    background-color: #99a19b;
+}
+
+.cartFooter {
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-shrink: 0;
+    gap: 150px;
+    padding-top: 20px;
+}
+
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 24px
+}
+
+.submitOverlay {
+    background: gray;
+    box-shadow: -10px -10px 9px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    left: 50%;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    z-index: 100;
+}
+ 
+.backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    position: fixed;
+    z-index: 99;
+}
+
+.confirmDetail {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+    text-align: left;
+}
+
+button {
+    font-size: 1rem;
+    padding: 12px 24px;
+}

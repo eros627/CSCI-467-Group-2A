@@ -1,0 +1,23 @@
+
+.orderCard {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    gap: 240px;
+    height: 100px;
+    padding: 10px;
+    width: 70%;
+}
+
+.orderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.completeOrder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
