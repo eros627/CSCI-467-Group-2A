@@ -9,7 +9,7 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Catalog />} />
-                <Route path="/warehouse/fulfillment" element={<Fulfillment />} />
+                <Route path="/fulfillment" element={<Fulfillment />} />
                 <Route path="/receiving" element={<Receiving />} />
                 <Route path="/admin" element={<Admin />} />
             </Routes>

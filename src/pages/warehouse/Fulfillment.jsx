@@ -1,3 +1,10 @@
+/**
+ * Tom Bernstein
+ * CSCI 467 - 1
+ * Group 2A Product System
+ *
+ * Description: Warehouse employee interface for order fulfillment.
+ *****************************************************************************/
 import './Fulfillment.css';
 import OrderCard from '../../components/OrderCard';
 import mockOrders from '../../data/mockOrders';

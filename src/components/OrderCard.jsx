@@ -1,3 +1,10 @@
+/**
+ * Tom Bernstein
+ * CSCI 467 - 1
+ * Group 2A Product System
+ *
+ * Description: Order card used to populate the fulfillment interface. 
+ *****************************************************************************/
 import './OrderCard.css'
 export default function OrderCard({ onCompleteOrder, order}) {
 

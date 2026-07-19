@@ -1,3 +1,11 @@
+/**
+ * Tom Bernstein
+ * CSCI 467 - 1
+ * Group 2A Product System
+ *
+ * Description: Product card used to populate catalog and customer cart.  
+ *****************************************************************************/
+
 import { useState } from 'react';
 import './PartCard.css';
 import stockImg from '../assets/stock_img.jpg';

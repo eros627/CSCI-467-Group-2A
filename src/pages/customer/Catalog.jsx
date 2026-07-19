@@ -82,6 +82,7 @@ export default function Catalog() {
         setIsCartOpen(false);
     }
 
+    //resets billing fields and cart state upon order submission
     function handleResetInfo() {
         setName('');
         setEmail('');
@@ -92,7 +93,8 @@ export default function Catalog() {
         setCartItems([]);
         setIsOrderSubmitted(false);
     }
-    
+
+
     const numItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     const subtotal = cartItems.reduce((sum, item) => {
@@ -246,7 +248,8 @@ export default function Catalog() {
                     </div>
                 </>
             )}
-
+            
+            
             {isOrderSubmitted && (
                 <>
                     <div className="backdrop" onClick={handleResetInfo}/>
