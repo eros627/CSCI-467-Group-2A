@@ -1,0 +1,72 @@
+.fulfillmentHeader {
+    align-items: center;
+    background-color: #5787f7;
+    display: flex;
+    gap: 25px;
+    justify-content: left;
+    padding: 5px 1px;
+    padding-left: 25px;
+    position: sticky;
+    top: 0;
+}
+
+.searchBar {
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    text-align: left;
+}
+
+.orderList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 24px
+}
+
+
+.fulfillmentOverlay {
+    background: gray;
+    box-shadow: -10px -10px 9px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 850px;
+    left: 50%;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    z-index: 100;
+}
+
+.orderToFulfill {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fulfillmentTitle {
+    color: #ccc;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fulfillmentSection {
+    color: black;
+    font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 50px;
+    text-align: left;
+}
+
+.fulfillmentBody {
+    color: black;
+    text-align: left;
+}
+
+button {
+    font-size: 1rem;
+    padding: 12px 24px;
+}
