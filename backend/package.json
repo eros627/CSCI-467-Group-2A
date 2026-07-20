@@ -1,0 +1,31 @@
+{
+  "name": "auto-parts-ordering-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express backend for catalog ordering, payment authorization, inventory, warehouse, and administration workflows.",
+  "type": "module",
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --watch src/server.js",
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test --test-concurrency=1",
+    "check": "node scripts/check-syntax.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.14.2",
+    "nodemailer": "^9.0.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.1",
+    "yaml": "^2.9.0"
+  }
+}
