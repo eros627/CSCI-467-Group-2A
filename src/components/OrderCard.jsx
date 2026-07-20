@@ -8,6 +8,10 @@
 import './OrderCard.css'
 export default function OrderCard({ onCompleteOrder, order}) {
 
+    function onCompleteClick() {
+        onCompleteOrder(order.no);
+    }
+
     return (
         
         <div className="orderCard">
@@ -17,7 +21,7 @@ export default function OrderCard({ onCompleteOrder, order}) {
                 <p>{order.totalWeight}</p>
             </div>
             <div className="completeOrder">
-                <button className="completeButton" onClick={onCompleteOrder}>Complete Order</button>
+                <button className="completeButton" onClick={onCompleteClick}>Complete Order</button>
                     
             </div>
         </div>

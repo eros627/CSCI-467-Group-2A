@@ -8,10 +8,24 @@
 import './Fulfillment.css';
 import OrderCard from '../../components/OrderCard';
 import mockOrders from '../../data/mockOrders';
+import mockParts from '../../data/mockParts';
+import calculateShipping from '../../data/mockShipping';
 import { useState } from 'react';
 
 export default function Fulfillment() {
     const [isOrderOpen, setIsOrderOpen] = useState(false);
+    const [orderList, setOrderList] = useState(mockOrders);
+    const [currentOrder, setCurrentOrder] = useState(null)
+
+    function handleSelectOrder(id) {
+        setCurrentOrder(mockOrders.find(o => o.no === id));
+        setIsOrderOpen(true);
+    }
+    
+
+    const shippingCost = currentOrder !== null ? calculateShipping(currentOrder.totalWeight) : 0;
+    
+
     return (
         <>        
             <div>
@@ -23,33 +37,36 @@ export default function Fulfillment() {
             </div>
 
             {isOrderOpen && (
-                <div className="fulfillmentOverlay">
-                    <header className="orderToFulfill">
-                        <p className="fulfillmentTitle">Order Filling: ID</p>
-                        <button className="backButton" onClick={() => setIsOrderOpen(false)}>
-                            X
-                        </button>
-                    </header>
-                    <p className="fulfillmentSection">Packing List:</p>
-                    <p className="fulfillmentBody">Item 1 x 1</p>
-                    <p className="fulfillmentBody">Item 2 x 1</p>
-                    <p className="fulfillmentBody">Item 3 x 1</p>
-                    <p className="fulfillmentSection">Invoice:</p>
-                    <p className="fulfillmentBody">1 - Item 1: XX.XX</p>
-                    <p className="fulfillmentBody">1 - Item 2: XX.XX</p>
-                    <p className="fulfillmentBody">1 - Item 3: XX.XX</p>
-                    <p className="fulfillmentBody">Amount: XX.XX</p>
-                    <p className="fulfillmentBody">Shipping: XX.XX </p>
-                    <p className="fulfillmentBody">Total: XX.XX</p>
-                    <p className="fulfillmentSection">Shipping Label:</p>
-                    <p className="fulfillmentBody">John Doe</p>
-                    <p className="fulfillmentBody">123 Main St, DeKalb, IL 60155</p>
-                    <p className="fulfillmentBody">Order confirmation will be sent to: johndoe@gmail.com</p>
-                    <p className="fulfillmentSection">Order will be marked as fulfilled.</p>
-                    <button>Fulfill Order</button>
-
-
-                </div>
+                <>
+                    <div className="backdrop" onClick={() => setIsOrderOpen(false)}/>
+                    <div className="fulfillmentOverlay">
+                        <header className="orderToFulfill">
+                            <p className="fulfillmentTitle">Order Filling: {currentOrder.no}</p>
+                            <button className="backButton" onClick={() => setIsOrderOpen(false)}>
+                                X
+                            </button>
+                        </header>
+                        <p className="fulfillmentSection">Packing List:</p>
+                        {currentOrder.packingList.map((item) => {
+                            return <p className="fulfillmentBody">{item.description} x {item.qty}</p>;
+                        })}
+                        <p className="fulfillmentSection">Invoice:</p>
+                        {currentOrder.packingList.map((item) => {
+                            const part = mockParts.find(p => p.partNumber === item.partNumber);
+                            const itemTotal = item.qty * part.price;
+                            return <p className="fulfillmentBody">{item.qty} - {item.description}: {itemTotal.toFixed(2)}</p>;
+                        })}
+                        <p className="fulfillmentBody">Amount: {(currentOrder.totalPrice - shippingCost).toFixed(2)}</p>
+                        <p className="fulfillmentBody">Shipping: {shippingCost} </p>
+                        <p className="fulfillmentBody">Total: {currentOrder.totalPrice}</p>
+                        <p className="fulfillmentSection">Shipping Label:</p>
+                        <p className="fulfillmentBody">{currentOrder.shippingInfo.name}</p>
+                        <p className="fulfillmentBody">{currentOrder.shippingInfo.address}</p>
+                        <p className="fulfillmentBody">Order confirmation will be sent to: {currentOrder.shippingInfo.email}</p>
+                        <p className="fulfillmentSection">Order will be marked as fulfilled.</p>
+                        <button onClick={() => setIsOrderOpen(false)}>Fulfill Order</button>
+                    </div>
+                </>
             )}        
 
             <h2>Orders awaiting fulfillment</h2>
@@ -61,6 +78,7 @@ export default function Fulfillment() {
                         <OrderCard 
                             key={order.no}
                             order={order}
+                            onCompleteOrder={(id) => handleSelectOrder(id)}
                         />
                     );
                 })}
