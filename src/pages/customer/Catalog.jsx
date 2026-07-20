@@ -1,5 +1,5 @@
 /**
- * Tom Bernstein
+ * Tom Bernstein/, minor changes Serge Novikov 7/19/2026
  * CSCI 467 - 1
  * Group 2A Product System
  *
@@ -8,9 +8,8 @@
 
 import './Catalog.css';
 import PartCard from '../../components/PartCard';
-import mockParts from '../../data/mockParts';
 import calculateShipping from '../../data/mockShipping';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Catalog() {
     //user action states
@@ -19,8 +18,9 @@ export default function Catalog() {
 
     //list states
     const [cartItems, setCartItems] = useState([]);
-    const [partList, filterPartList] = useState(mockParts);
-    
+    const [allParts, setAllParts] = useState([]);
+    const [partList, setPartList] = useState([]);
+
     //value states
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -28,6 +28,37 @@ export default function Catalog() {
     const [ccNumber, setCcNumber] = useState('');
     const [expMonth, setExpMonth] = useState('');
     const [expYear, setExpYear] = useState('');
+
+    // Loads product data from backend, Serge
+    useEffect(() => {
+        async function loadParts() {
+            try {
+                const response = await fetch('http://localhost:5000/api/products');
+
+                if (!response.ok) {
+                    throw new Error('Failed to load products');
+                }
+
+                const data = await response.json();
+                // This one convers backend prodect fields to frontend format
+                const formattedParts = data.map((part) => ({
+                    partNumber: part.number,
+                    description: part.description,
+                    price: Number(part.price),
+                    weight: Number(part.weight),
+                    pictureLink: part.pictureURL,
+                    qtyAvailable: part.qtyAvailable,
+                }));
+
+                setAllParts(formattedParts);
+                setPartList(formattedParts);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        loadParts();
+    }, []);
 
     //adds an item to the cart.
     //partInfo {partNumber: x, quantity: x}
@@ -63,9 +94,13 @@ export default function Catalog() {
 
     //filters parts visible in the catalog by description.
     function filterParts(query) {
-        filterPartList(mockParts.filter((element) =>
-            element.description.toLowerCase().startsWith(query.toLowerCase(), 0)
-        ));
+        setPartList(
+            allParts.filter((element) =>
+                element.description
+                    .toLowerCase()
+                    .includes(query.toLowerCase())
+            )
+        );
     }
 
     //handles credit card entry. Forces hyphenated formatting for user
@@ -97,14 +132,15 @@ export default function Catalog() {
 
     const numItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+    
     const subtotal = cartItems.reduce((sum, item) => {
-        const part = mockParts.find(p => p.partNumber === item.partNumber);
-        return sum + part.price * item.quantity
+        const part = allParts.find(p => p.partNumber === item.partNumber);
+        return sum + part.price * item.quantity;
     }, 0);
 
     const totalWeight = cartItems.reduce((sum, item) => {
-        const part = mockParts.find(p => p.partNumber === item.partNumber);
-        return sum + part.weight * item.quantity
+        const part = allParts.find(p => p.partNumber === item.partNumber);
+        return sum + part.weight * item.quantity;
     }, 0);
 
     const totalShipping = calculateShipping(totalWeight);
@@ -147,7 +183,8 @@ export default function Catalog() {
 
                         <div className="cartItems">
                             {cartItems.map((item) => {
-                                const part = mockParts.find(p => p.partNumber === item.partNumber);
+                                const part = allParts.find(p => p.partNumber === item.partNumber);
+                                if (!part) return null;
                                 return (
                                     <div className="cartRow" key={item.partNumber}>
                                         <PartCard
