@@ -56,7 +56,7 @@ export const createOrderBody = z.object({
     items: z.array(z.object({
         partNumber: positiveInteger,
         quantity: z.coerce.number().int().min(1).max(1000),
-    })).min(1).max(100
+    })).min(1).max(100),
     payment,
 });
 
