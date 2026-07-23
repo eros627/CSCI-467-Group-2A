@@ -31,7 +31,11 @@ export default function PartCard({ showAddToCart = false, quantity = 1, onQuanti
 
     return (
         <div className="productCard">
-            <img src={stockImg} alt={'stock product image'}/>
+            <img 
+                src={part.pictureUrl}
+                alt={'stock product image'}
+                onError={(e) => e.target.src = stockImg}
+            />
             <div className="productInfo">
                 <p>{part.description}</p>
                 <p>${part.price.toFixed(2)}</p>
