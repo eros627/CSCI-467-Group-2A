@@ -448,7 +448,7 @@ export default function Catalog() {
                         <h2>Confirmation: Order No. {orderResult.orderNumber}</h2>
                         <div className="confirmDetail">
                             <p>Amount: {orderTotal.toFixed(2)}</p>
-                            <p>Auth: {orderResult.payment.authorizationNumber}</p>
+                            <p>Auth: {JSON.parse(orderResult.payment.authorizationNumber).authorization}</p>
                             <p>For: {name}, {email}</p>
                         </div>
                         <p>Thank you for shopping with us.</p>
