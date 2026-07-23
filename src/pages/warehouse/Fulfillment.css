@@ -66,6 +66,13 @@
     text-align: left;
 }
 
+.backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    position: fixed;
+    z-index: 99;
+}
+
 button {
     font-size: 1rem;
     padding: 12px 24px;
