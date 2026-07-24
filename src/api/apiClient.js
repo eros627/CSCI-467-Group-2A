@@ -1,5 +1,9 @@
-
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+// Wired to the real backend, now merged into main.
+// NOTE: standardized on VITE_API_URL (not VITE_API_BASE_URL) to match the
+// variable name Tom's Catalog.jsx already uses - one .env value, not two.
+// VITE_API_URL should be just the origin (e.g. http://localhost:3000),
+// matching how Catalog.jsx appends /api/... itself.
+const BASE_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/api`;
 const WAREHOUSE_API_KEY = import.meta.env.VITE_WAREHOUSE_API_KEY || '';
 const ADMIN_API_KEY = import.meta.env.VITE_ADMIN_API_KEY || '';
 
